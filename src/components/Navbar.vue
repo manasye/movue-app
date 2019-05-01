@@ -8,15 +8,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Now Playing</a>
+            <a class="nav-link" href="#">{{
+              !search ? "Now Playing" : "Search"
+            }}</a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="#">About Me</a></li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input
             class="form-control mr-md-4 mr-sm-2"
             type="search"
-            placeholder="Search Here ..."
+            placeholder="Search Title"
             v-model="searchInput"
           />
           <button
@@ -36,12 +37,16 @@
 export default {
   data() {
     return {
-      searchInput: ""
+      searchInput: "",
+      search: false
     };
   },
   methods: {
     searchMovie() {
-      console.log(this.searchInput);
+      if (this.searchInput) {
+        this.search = true;
+      }
+      this.$emit("searchMovie", this.searchInput);
     }
   }
 };
