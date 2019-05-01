@@ -9,7 +9,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">{{
-              !search ? "Now Playing" : "Search"
+              !search ? "Now Playing" : "Search " + searchInput
             }}</a>
           </li>
         </ul>
@@ -45,6 +45,8 @@ export default {
     searchMovie() {
       if (this.searchInput) {
         this.search = true;
+      } else {
+        this.search = false;
       }
       this.$emit("searchMovie", this.searchInput);
     }
