@@ -1,6 +1,6 @@
 # movue-app
 
-> A Vue.js project
+> A simple search movie application, made with Vue Js. Movie API taken from TMDB.
 
 ## Build Setup
 
